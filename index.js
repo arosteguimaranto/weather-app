@@ -1,36 +1,56 @@
-const { leerInput,inquirerMenu,pausa } = require("./helpers/inquirer")
+const { leerInput, inquirerMenu, pausa } = require("./helpers/inquirer");
+const Busquedas = require("./models/busquedas");
 
-const main = async() =>{
+const main = async () => {
 
-    let opt ='';
+    const busquedas = new Busquedas();
 
-    do{
+    let opt = '';
 
-       
-    opt = await inquirerMenu();
-    console.log({opt})
 
-    if(opt !==0)  await pausa();
+    do {
+
+
+        opt = await inquirerMenu();
+        switch (opt) {
+            case 1:
+             //Mostrar mensaje
+             const lugar =  await leerInput('Ciudad: ');
+            console.log(lugar);
+             //Buscar los lugares
+
+             // Seleccionar el lugar
+
+             //Clima
+
+             //Mostrar resultados
+
+             console.log('\nInformacion de la ciudad\n'.rainbow);
+             console.log('Ciudad:', );
+             console.log('Lat:', );
+             console.log('Lng:', );
+             console.log('Temperatura:', );
+             console.log('Minima:', );
+             console.log('Maxima:', );
+
+
+                break;
+
+
+
+
+        }
+
+        console.log({ opt });
+
+        if (opt !== 0) await pausa();
 
     } while (opt !== 0)
 
     //Muestra el menu
 
-/* 
-    switch (opt) {
-        case 1 :
-            console.log('UNO')
-            break;
 
-        case 2 :
-            console.log('DOS')
 
-            break;
-
-        case 0 : // listar completadas
-
-        console.log('CERO')
-            break; */
     //ciclo
     // crear la opcion
     // menu como lo trabajamos en la seccion anterior
@@ -38,7 +58,7 @@ const main = async() =>{
     // pausa para que cuando se oprima enter se recargue la seccion
 
 
-   
+
 
     console.log(texto);
 }

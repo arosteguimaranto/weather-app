@@ -43,7 +43,7 @@ const inquirerMenu = async () => {
 }
 
 const pausa = async () => {
-    uuidv4();
+    
     const question = [
         {
             type: 'input',
