@@ -12,11 +12,11 @@ const preguntas = [
         choices: [
             {
                 value: 1,
-                name: `${'1'.blue}  Buscar ciudad`
+                name: `${'1'.red}  Buscar ciudad`
             },
             {
                 value: 2,
-                name: `${'2'.blue}  Historial `
+                name: `${'2'.yellow}  Historial `
 
             },
             {
