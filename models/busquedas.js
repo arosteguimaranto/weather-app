@@ -8,13 +8,29 @@ class Busquedas {
     constructor() {
         //TODO: leer DB si existe
     }
+
+
+    get paramsMapbox() {
+        return {
+            'access_token': 'pk.eyJ1IjoiYXJvc3RlZ3VpbWFyYW50byIsImEiOiJjbDlvbHRibjUwMnU1NDBwbXIzYml2NDNzIn0.q-ozXy3Ppd2TbRMlpWJUCA',
+            'limit': 5,
+            'languaje': 'es'
+        }
+    }
+
     async ciudad(lugar = '') {
         try {
 
             // peticion http
-            //console.log('ciudad', lugar); 
 
-            const resp = await axios.get('https://api.mapbox.com/geocoding/v5/mapbox.places/poza%20rica%20.json?proximity=ip&types=place%2Cpostcode%2Caddress&language=es&access_token=pk.eyJ1IjoiYXJvc3RlZ3VpbWFyYW50byIsImEiOiJjbDlvbHRibjUwMnU1NDBwbXIzYml2NDNzIn0.q-ozXy3Ppd2TbRMlpWJUCA')
+            const intance = axios.create({
+                baseURL: `https://api.mapbox.com/geocoding/v5/mapbox.places/poza%20rica%20${lugar}.json`,
+                params: this.paramsMapbox
+
+
+            });
+
+            const resp = await intance.get();
             console.log(resp.data);
 
             return []
