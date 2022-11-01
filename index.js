@@ -45,7 +45,7 @@ const main = async () => {
              console.log('\nInformacion de la ciudad\n'.rainbow);
              console.log('Ciudad:', luagrSel.nombre );  
              console.log('Lat:', luagrSel.lat );
-             console.log('Lng:', );
+             console.log('Lng:', luagrSel.lng );
              console.log('Temperatura:', );
              console.log('Minima:', );
              console.log('Maxima:', );
