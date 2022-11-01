@@ -1,5 +1,11 @@
-const { leerInput, inquirerMenu, pausa } = require("./helpers/inquirer");
+require('dotenv').config()
+
+
+const { leerInput, inquirerMenu, pausa, listarLugares } = require("./helpers/inquirer");
 const Busquedas = require("./models/busquedas");
+
+//console.log(process.env.MAPBOX_KEY);
+
 
 const main = async () => {
 
@@ -15,8 +21,17 @@ const main = async () => {
         switch (opt) {
             case 1:
              //Mostrar mensaje
-             const lugar =  await leerInput('Ciudad: ');
-             await busquedas.ciudad( lugar );
+             const termino =  await leerInput('Ciudad: ');
+
+             //Buscar los lugares
+             const lugares = await busquedas.ciudad( termino );
+             
+             //Seleccionar el lugar
+             const id = await listarLugares(lugares);
+             const luagrSel = lugares.find(l => l.id === id);
+             console.log(luagrSel);
+             //console.log({id});
+
 
       
              //Buscar los lugares
@@ -28,8 +43,8 @@ const main = async () => {
              //Mostrar resultados
 
              console.log('\nInformacion de la ciudad\n'.rainbow);
-             console.log('Ciudad:', );
-             console.log('Lat:', );
+             console.log('Ciudad:', luagrSel.nombre );  
+             console.log('Lat:', luagrSel.lat );
              console.log('Lng:', );
              console.log('Temperatura:', );
              console.log('Minima:', );
@@ -64,7 +79,6 @@ const main = async () => {
 
     console.log(texto);
 }
-
 
 
 main();
