@@ -40,15 +40,19 @@ const main = async () => {
 
              //Clima
 
+             const clima = await busquedas.climalugar(luagrSel.lat, luagrSel.lng);
+             
              //Mostrar resultados
 
+             console.clear();
              console.log('\nInformacion de la ciudad\n'.rainbow);
-             console.log('Ciudad:', luagrSel.nombre );  
+             console.log('Ciudad:', luagrSel.nombre.red);  
              console.log('Lat:', luagrSel.lat );
              console.log('Lng:', luagrSel.lng );
-             console.log('Temperatura:', );
-             console.log('Minima:', );
-             console.log('Maxima:', );
+             console.log('Temperatura:', clima.temp);
+             console.log('Minima:', clima.min );
+             console.log('Maxima:', clima.max );
+             console.log('Como esta el clima:', clima.desc.rainbow);
 
 
                 break;
@@ -58,7 +62,7 @@ const main = async () => {
 
         }
 
-        console.log({ opt });
+       
 
         if (opt !== 0) await pausa();
 
@@ -77,7 +81,7 @@ const main = async () => {
 
 
 
-    console.log(texto);
+    //console.log(texto);
 }
 
 
